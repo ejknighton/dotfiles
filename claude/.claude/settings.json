@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  },
+  "permissions": {
+    "allowedTools": [
+      "Read",
+      "Write(src/**)",
+      "Write(tests/**)",
+      "Write(docs/**)",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(python *)",
+      "Bash(pytest *)"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Write(*.production.*)",
+      "Write(*.prod.*)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  },
+  "env": {
+    "ANTHROPIC_MODEL": "claude-sonnet-4-5-20250929"
+  }
+}
