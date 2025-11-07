@@ -122,3 +122,102 @@ npx -y @upstash/context7-mcp@latest
 # Check settings
 cat ~/.claude/settings.json
 ```
+
+## Included Configurations
+
+### Vim
+- **vimrc**: Vim editor configuration
+- **vim/**: Plugins, colors, and additional Vim files
+
+Location after install: `~/.vimrc`, `~/.vim/`
+
+### VS Code
+- **settings.json**: Editor settings
+- **keybindings.json**: Keyboard shortcuts
+- **extensions.txt**: List of installed extensions
+
+Location after install: 
+- Mac: `~/Library/Application Support/Code/User/`
+- Linux: `~/.config/Code/User/`
+
+Update extensions list: `./update-vscode-extensions.sh`
+
+### Shell
+- **zshrc**: Zsh shell configuration
+- **bashrc**: Bash shell configuration
+
+Location after install: `~/.zshrc`, `~/.bashrc`
+
+### Git
+- **gitconfig**: Git configuration (user, aliases, etc.)
+
+Location after install: `~/.gitconfig`
+
+### Claude Code
+- **claude/.claude/**: Claude Code global configuration
+  - settings.json, CLAUDE.md, commands/
+
+Location after install: `~/.claude/`
+
+## Updating Configurations
+
+### After Making Changes
+```bash
+cd ~/dotfiles
+
+# Stage changes
+git add .
+
+# Commit (examples)
+git commit -m "Update vim colorscheme"
+git commit -m "Add VS Code extensions"
+git commit -m "Update Claude commands"
+
+# Push to GitHub
+git push
+```
+
+### Update VS Code Extensions List
+
+After installing/removing VS Code extensions:
+```bash
+cd ~/dotfiles
+./update-vscode-extensions.sh
+git add vscode/extensions.txt
+git commit -m "Update VS Code extensions"
+git push
+```
+
+### Sync to Other Computers
+```bash
+cd ~/dotfiles
+git pull
+
+# Changes are immediately available via symlinks
+# Restart terminal/VS Code to pick up changes
+```
+
+## Troubleshooting
+
+### Vim not loading config
+```bash
+ls -la ~/.vimrc
+# Should show: .vimrc -> /Users/you/dotfiles/vimrc
+```
+
+### VS Code not loading settings
+```bash
+# Mac
+ls -la ~/Library/Application\ Support/Code/User/settings.json
+
+# Linux
+ls -la ~/.config/Code/User/settings.json
+
+# Should show symlink to ~/dotfiles/vscode/settings.json
+```
+
+### Recreate all symlinks
+```bash
+cd ~/dotfiles
+./install.sh
+```
