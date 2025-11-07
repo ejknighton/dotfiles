@@ -1,0 +1,25 @@
+# Secrets
+**/*.key
+**/*.pem
+**/secrets.json
+**/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Vim temporary files
+*.swp
+*.swo
+*~
+
+# VS Code workspace files (project-specific)
+*.code-workspace
+
+# Backup files
+*.backup
+
+# Don't commit specific local overrides
+**/settings.local.json
